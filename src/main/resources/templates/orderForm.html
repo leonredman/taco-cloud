@@ -15,14 +15,16 @@
     <img th:src="@{/images/TacoCloud.png}"/>
 
     <h3>Your tacos in this order:</h3>
+
     <a th:href="@{/design}" id="another">Design another taco</a><br/>
     <ul>
-<!--th: each cycles thru the orders tacos property as it create list-->
         <li th:each="taco : ${tacoOrder.tacos}">
-        <span th:text="${taco.name}">taco name</span></li>
+        <span th:text="${taco.name}">taco name</span>
+        </li>
     </ul>
 
     <h3>Deliver my taco masterpieces to...</h3>
+
     <label for="deliveryName">Name: </label>
     <input type="text" th:field="*{deliveryName}"/>
 
@@ -60,13 +62,14 @@
 
     <br/>
 
-    <label for="ccCVV">CVV: </label>
+
+<!--    took 3 days to find bug where ccCVV did not match in Getter and setter for TacoOrder.java-->
+        <label for="ccCVV">CVV: </label>
     <input type="text" th:field="*{ccCVV}"/>
 
     <br/>
 
     <input type="submit" value="Submit Order"/>
 </form>
-
 </body>
 </html>
